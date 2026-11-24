@@ -33,6 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: VS Code header card
+        run: python3 gen_vscode.py -o profile/header.svg
+
       - name: Stats card
         uses: stats-organization/github-readme-stats-action@v2.1.0
         with:
