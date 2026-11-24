@@ -1,24 +1,26 @@
-"""Generate profile/header.svg — an animated VS Code-style "about me" card.
+"""
+Generate profile/header.svg — an animated VS Code-style "about me" card.
 
 Usage: python3 gen_vscode.py [-o profile/header.svg] [--static]
 Edit LINES below; token classes: k=keyword t=type p=property s=string
 c=comment f=function n=punctuation v=variable.
 """
+
 import argparse, html, os
 # Token classes: k=keyword t=type p=property s=string c=comment f=function n=punct v=variable
 LINES = [
-    [("c", "// hi, I'm Mitch")],
+    [("c", "// G'day, I'm Mitch")],
     [],
-    [("k","const "),("v","mitch"),("n",": "),("t","Engineer"),("n"," = {")],
-    [("n","  "),("p","studying"),("n",": "),("s",'"Computer Science @ Edith Cowan University"'),("n",",")],
+    [("k","const "),("v","mitch"),("n",": "),("t","SoftwareEngineer"),("n"," = {")],
+    [("n","  "),("p","education"),("n",": "),("s",'"BCompSc. Software Engineering"'),("n",",")],
     [("n","  "),("p","focus"),("n",": ["),("s",'"distributed systems"'),("n",", "),("s",'"embedded firmware"'),("n","],")],
     [("n","  "),("p","alsoInto"),("n",": ["),("s",'"security research"'),("n",", "),("s",'"game reverse engineering"'),("n","],")],
-    [("n","  "),("p","building"),("n",": ["),("s",'"self-hosted streaming"'),("n",", "),("s",'"docker swarm homelab"'),("n","],")],
-    [("n","  "),("p","stack"),("n",": ["),("s",'"Python"'),("n",", "),("s",'"C"'),("n",", "),("s",'"TypeScript"'),("n",", "),("s",'"Docker"'),("n","],")],
+    [("n","  "),("p","building"),("n",": ["),("s",'"homelab hardware"'),("n",", "),("s",'"remote testing orchestration app"'),("n","],")],
+    [("n","  "),("p","stack"),("n",": ["),("s",'"Python"'),("n",", "),("s",'"C/C++"'),("n",", "),("s",'"HTML+Alpine.JS"'),("n",", "),("s",'"Docker"'),("n","],")],
     [("n","  "),("p","location"),("n",": "),("s",'"Perth, WA"'),("n",",")],
     [("n","};")],
     [],
-    [("v","mitch"),("n","."),("f","connect"),("n","(); "),("c","// let's build something")],
+    [("v","mitch"),("n","."),("f","connect"),("n","(); "),("c","// let's build something -> mitch@neutron.au")],
 ]
 W, LH, TOP, CODE_X, CW = 860, 24, 92, 64, 8.43
 H = TOP + LH*len(LINES) + 46
@@ -50,7 +52,7 @@ a(f'<rect width="{W}" height="{H}" fill="#1e1e1e"/>')
 a(f'<rect width="{W}" height="36" fill="#323233"/>')
 for i,c in enumerate(["#ff5f57","#febc2e","#28c840"]):
     a(f'<circle cx="{20+i*20}" cy="18" r="6" fill="{c}"/>')
-a(f'<text x="{W/2}" y="23" class="ui" text-anchor="middle">about-me.ts — mitchnaake</text>')
+a(f'<text x="{W/2}" y="23" class="ui" text-anchor="middle">about-me.ts — mitch</text>')
 # tab bar
 a(f'<rect y="36" width="{W}" height="34" fill="#252526"/>')
 a('<rect y="36" width="150" height="34" fill="#1e1e1e"/><rect y="36" width="150" height="2" fill="#0078d4"/>')
